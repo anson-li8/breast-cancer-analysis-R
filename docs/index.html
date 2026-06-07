@@ -434,13 +434,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong584a18f">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3e894b9">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 584a18f
+aria-hidden="true"></span> <strong>Repository version:</strong> 3e894b9
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong584a18f"
+<div id="strongRepositoryversionstrong3e894b9"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -449,7 +449,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 584a18f.
+The results in this page were generated with repository version 3e894b9.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -508,6 +508,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+3e894b9
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+mistake with column name being a string
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+02e860c
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -593,14 +627,22 @@ number</code></pre>
 1 269</code></pre>
 <pre class="r"><code># Task 2: count patients by cancer subtype, sorted from most to least common
 result &lt;- dataframe %&gt;% 
-  group_by(&quot;HISTOLOGICAL_DIAGNOSIS&quot;) %&gt;% 
+  group_by(HISTOLOGICAL_DIAGNOSIS) %&gt;% 
   arrange(desc(n())) %&gt;%
   summarise(n())
 result</code></pre>
-<pre><code># A tibble: 1 × 2
-  `&quot;HISTOLOGICAL_DIAGNOSIS&quot;` `n()`
-  &lt;chr&gt;                      &lt;int&gt;
-1 HISTOLOGICAL_DIAGNOSIS      1097</code></pre>
+<pre><code># A tibble: 9 × 2
+  HISTOLOGICAL_DIAGNOSIS           `n()`
+  &lt;chr&gt;                            &lt;int&gt;
+1 Infiltrating Carcinoma NOS           1
+2 Infiltrating Ductal Carcinoma      784
+3 Infiltrating Lobular Carcinoma     203
+4 Medullary Carcinoma                  6
+5 Metaplastic Carcinoma                9
+6 Mixed Histology (please specify)    30
+7 Mucinous Carcinoma                  17
+8 Other, specify                      46
+9 [Not Available]                      1</code></pre>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
