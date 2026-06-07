@@ -8,4 +8,17 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+```{r setup, include=FALSE}
+# show the code on the website
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+```
+
+```{r analyze_data}
+dataframe <- read.delim("data_clinical_patient.txt", comment.char="#")
+# filter out so only Stage 3 and 4
+number <- dataframe %>%
+  filter(AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage III" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IIIA" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IIIB" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IIIC" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IV")  %>% 
+  count()
+number
+```
