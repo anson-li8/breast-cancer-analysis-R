@@ -16,9 +16,16 @@ library("tidyverse")
 
 ```{r analyze_data}
 dataframe <- read.delim("data_clinical_patient.txt", comment.char="#")
-# filter out so only Stage 3 and 4
+# Task 1: filter out so only Stage 3 and 4, then count
 number <- dataframe %>%
-  filter(AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage III" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IIIA" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IIIB" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IIIC" | AJCC_PATHOLOGIC_TUMOR_STAGE == "Stage IV")  %>% 
+  filter(AJCC_PATHOLOGIC_TUMOR_STAGE %in% c("Stage III", "Stage IIIA", "Stage IIIB", "Stage IIIC", "Stage IV"))  %>% 
   count()
 number
+
+# Task 2: count patients by cancer subtype, sorted from most to least common
+result <- dataframe %>% 
+  group_by("HISTOLOGICAL_DIAGNOSIS") %>% 
+  arrange(desc(n())) %>%
+  summarise(n())
+result
 ```
