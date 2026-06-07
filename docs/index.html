@@ -434,13 +434,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3e894b9">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong8e21fa3">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 3e894b9
+aria-hidden="true"></span> <strong>Repository version:</strong> 8e21fa3
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong3e894b9"
+<div id="strongRepositoryversionstrong8e21fa3"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -449,7 +449,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 3e894b9.
+The results in this page were generated with repository version 8e21fa3.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -508,6 +508,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+8e21fa3
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+arrange needs to go after summarize
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+4d9c0e7
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -628,8 +662,8 @@ number</code></pre>
 <pre class="r"><code># Task 2: count patients by cancer subtype, sorted from most to least common
 result &lt;- dataframe %&gt;% 
   group_by(HISTOLOGICAL_DIAGNOSIS) %&gt;% 
-  arrange(desc(n())) %&gt;%
-  summarise(n())
+  summarise(n()) %&gt;%
+  arrange(desc(n()))
 result</code></pre>
 <pre><code># A tibble: 9 × 2
   HISTOLOGICAL_DIAGNOSIS           `n()`
