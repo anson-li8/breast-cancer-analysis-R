@@ -24,7 +24,7 @@ number
 
 # Task 2: count patients by cancer subtype, sorted from most to least common
 result <- dataframe %>% 
-  group_by("HISTOLOGICAL_DIAGNOSIS") %>% 
+  group_by(HISTOLOGICAL_DIAGNOSIS) %>% 
   arrange(desc(n())) %>%
   summarise(n())
 result
