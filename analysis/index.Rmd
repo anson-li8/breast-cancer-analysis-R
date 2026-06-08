@@ -37,7 +37,9 @@ result <- dataframe %>%
 # Task 4: plot histogram of patient age, add vertical line at mean age
 dataframe$AGE <- as.numeric(ifelse(dataframe$AGE == "[Not Available]", NA, dataframe$AGE))
 mean_age <- mean(dataframe$AGE, na.rm = TRUE)
-ggplot(dataframe, aes(x = AGE)) +
+dataframe %>% 
+  filter(!is.na(AGE)) %>% 
+  ggplot(aes(x = AGE)) +
   geom_histogram(binwidth = 5) +
   geom_vline(xintercept = mean_age) +
   labs(title = "Histogram of Patient Age", x = "Age", y = "Count")
