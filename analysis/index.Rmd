@@ -45,11 +45,13 @@ ggplot(dataframe, aes(x = AGE)) +
 # Task 5: bar chart of patient counts by cancer stage
 ggplot(dataframe, aes(x = AJCC_PATHOLOGIC_TUMOR_STAGE)) +
   geom_bar() +
-  labs(title = "Patient Counts by Cancer Stage", x = "Cancer Stage", y = "Count")
+  labs(title = "Patient Counts by Cancer Stage", x = "Cancer Stage", y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # Task 6: scatterplot of age vs survival years colored by subtype
 ggplot(result, aes(x=AGE, y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
   geom_point() +
   labs(title = "Age vs Survival Years by Cancer Subtype", x = "Age", y = "Survival Years") +
-  theme_minimal()
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
