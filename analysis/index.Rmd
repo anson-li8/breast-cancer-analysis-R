@@ -30,12 +30,12 @@ result <- dataframe %>%
 result
 
 # Task 3: convert months to years by creating new column
-dataframe$OS_MONTHS <- as.numeric(dataframe$OS_MONTHS)
+dataframe$OS_MONTHS <- as.numeric(ifelse(dataframe$OS_MONTHS == "[Not Available]", NA, dataframe$OS_MONTHS))
 result <- dataframe %>%
   mutate(OS_YEARS = OS_MONTHS / 12)
 
 # Task 4: plot histogram of patient age, add vertical line at mean age
-dataframe$AGE <- as.numeric(dataframe$AGE)
+dataframe$AGE <- as.numeric(ifelse(dataframe$AGE == "[Not Available]", NA, dataframe$AGE))
 mean_age <- mean(dataframe$AGE, na.rm = TRUE)
 ggplot(dataframe, aes(x = AGE)) +
   geom_histogram(binwidth = 5) +
@@ -49,7 +49,7 @@ ggplot(dataframe, aes(x = AJCC_PATHOLOGIC_TUMOR_STAGE)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 # Task 6: scatterplot of age vs survival years colored by subtype
-filter(result, AGE != "[Not Available]") %>%
+filter(result, AGE != "[Not Available]", !is.na(OS_YEARS), !is.na(AGE)) %>%
   ggplot(aes(x=as.numeric(AGE), y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
   geom_point() +
   labs(title = "Age vs Survival Years by Cancer Subtype", x = "Age", y = "Survival Years") +
