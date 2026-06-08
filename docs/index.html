@@ -434,13 +434,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3db6490">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong94e49bf">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 3db6490
+aria-hidden="true"></span> <strong>Repository version:</strong> 94e49bf
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong3db6490"
+<div id="strongRepositoryversionstrong94e49bf"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -449,7 +449,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 3db6490.
+The results in this page were generated with repository version 94e49bf.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -508,6 +508,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+94e49bf
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+final edits
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+93d4a5d
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -848,15 +882,13 @@ result</code></pre>
 8 Infiltrating Carcinoma NOS           1
 9 [Not Available]                      1</code></pre>
 <pre class="r"><code># Task 3: convert months to years by creating new column
-dataframe$OS_MONTHS &lt;- as.numeric(dataframe$OS_MONTHS)</code></pre>
-<pre><code>Warning: NAs introduced by coercion</code></pre>
-<pre class="r"><code>result &lt;- dataframe %&gt;%
+dataframe$OS_MONTHS &lt;- as.numeric(ifelse(dataframe$OS_MONTHS == &quot;[Not Available]&quot;, NA, dataframe$OS_MONTHS))
+result &lt;- dataframe %&gt;%
   mutate(OS_YEARS = OS_MONTHS / 12)
 
 # Task 4: plot histogram of patient age, add vertical line at mean age
-dataframe$AGE &lt;- as.numeric(dataframe$AGE)</code></pre>
-<pre><code>Warning: NAs introduced by coercion</code></pre>
-<pre class="r"><code>mean_age &lt;- mean(dataframe$AGE, na.rm = TRUE)
+dataframe$AGE &lt;- as.numeric(ifelse(dataframe$AGE == &quot;[Not Available]&quot;, NA, dataframe$AGE))
+mean_age &lt;- mean(dataframe$AGE, na.rm = TRUE)
 ggplot(dataframe, aes(x = AGE)) +
   geom_histogram(binwidth = 5) +
   geom_vline(xintercept = mean_age) +
@@ -956,14 +988,12 @@ Anson Li
 </div>
 </div>
 <pre class="r"><code># Task 6: scatterplot of age vs survival years colored by subtype
-filter(result, AGE != &quot;[Not Available]&quot;) %&gt;%
+filter(result, AGE != &quot;[Not Available]&quot;, !is.na(OS_YEARS), !is.na(AGE)) %&gt;%
   ggplot(aes(x=as.numeric(AGE), y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
   geom_point() +
   labs(title = &quot;Age vs Survival Years by Cancer Subtype&quot;, x = &quot;Age&quot;, y = &quot;Survival Years&quot;) +
   theme_minimal() +
   scale_x_continuous(breaks = seq(20, 90, by = 10))</code></pre>
-<pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
 <p><img src="figure/index.Rmd/analyze_data-3.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-analyze_data-3">
@@ -987,6 +1017,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+93d4a5d
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+</tr>
 <tr>
 <td>
 548f6bc
