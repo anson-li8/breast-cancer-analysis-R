@@ -1,9 +1,3 @@
-# Breast Cancer Data Analysis
-
-A [workflowr][] project.
-
-[workflowr]: https://github.com/workflowr/workflowr
-
 # Breast Cancer Clinical Data Analysis
 
 A learning project by a high school student learning R and workflowr.
