@@ -434,13 +434,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong59a66fb">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong6ac1025">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 59a66fb
+aria-hidden="true"></span> <strong>Repository version:</strong> 6ac1025
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong59a66fb"
+<div id="strongRepositoryversionstrong6ac1025"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -449,7 +449,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 59a66fb.
+The results in this page were generated with repository version 6ac1025.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -508,6 +508,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+6ac1025
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+cleanup x-axis?
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+39336bb
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -802,7 +836,8 @@ Anson Li
 <pre class="r"><code># Task 5: bar chart of patient counts by cancer stage
 ggplot(dataframe, aes(x = AJCC_PATHOLOGIC_TUMOR_STAGE)) +
   geom_bar() +
-  labs(title = &quot;Patient Counts by Cancer Stage&quot;, x = &quot;Cancer Stage&quot;, y = &quot;Count&quot;)</code></pre>
+  labs(title = &quot;Patient Counts by Cancer Stage&quot;, x = &quot;Cancer Stage&quot;, y = &quot;Count&quot;) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
 <p><img src="figure/index.Rmd/analyze_data-2.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-analyze_data-2">
@@ -845,7 +880,8 @@ Anson Li
 ggplot(result, aes(x=AGE, y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
   geom_point() +
   labs(title = &quot;Age vs Survival Years by Cancer Subtype&quot;, x = &quot;Age&quot;, y = &quot;Survival Years&quot;) +
-  theme_minimal()</code></pre>
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))</code></pre>
 <pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 <p><img src="figure/index.Rmd/analyze_data-3.png" alt="" width="672" style="display: block; margin: auto;" /></p>
