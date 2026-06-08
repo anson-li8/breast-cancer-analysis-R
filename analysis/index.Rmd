@@ -33,7 +33,6 @@ result
 dataframe$OS_MONTHS <- as.numeric(dataframe$OS_MONTHS)
 result <- dataframe %>%
   mutate(OS_YEARS = OS_MONTHS / 12)
-result
 
 # Task 4: plot histogram of patient age, add vertical line at mean age
 dataframe$AGE <- as.numeric(dataframe$AGE)
