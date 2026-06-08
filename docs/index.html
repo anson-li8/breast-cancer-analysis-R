@@ -434,13 +434,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong7969c89">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3db6490">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 7969c89
+aria-hidden="true"></span> <strong>Repository version:</strong> 3db6490
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong7969c89"
+<div id="strongRepositoryversionstrong3db6490"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -449,7 +449,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 7969c89.
+The results in this page were generated with repository version 3db6490.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -508,6 +508,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+3db6490
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+cleanup x-axis?
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+548f6bc
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -922,11 +956,12 @@ Anson Li
 </div>
 </div>
 <pre class="r"><code># Task 6: scatterplot of age vs survival years colored by subtype
-ggplot(result, aes(x=AGE, y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
+filter(result, AGE != &quot;[Not Available]&quot;) %&gt;%
+  ggplot(aes(x=as.numeric(AGE), y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
   geom_point() +
   labs(title = &quot;Age vs Survival Years by Cancer Subtype&quot;, x = &quot;Age&quot;, y = &quot;Survival Years&quot;) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))</code></pre>
+  scale_x_continuous(breaks = seq(20, 90, by = 10))</code></pre>
 <pre><code>Warning: Removed 1 row containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 <p><img src="figure/index.Rmd/analyze_data-3.png" alt="" width="672" style="display: block; margin: auto;" /></p>
@@ -952,6 +987,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+548f6bc
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+</tr>
 <tr>
 <td>
 880df9a
