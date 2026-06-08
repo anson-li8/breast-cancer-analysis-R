@@ -25,7 +25,32 @@ number
 # Task 2: count patients by cancer subtype, sorted from most to least common
 result <- dataframe %>% 
   group_by(HISTOLOGICAL_DIAGNOSIS) %>% 
-  summarise(n()) %>%
-  arrange(desc(n()))
+  summarise(count = n()) %>%
+  arrange(desc(count))
 result
+
+# Task 3: convert months to years by creating new column
+dataframe$OS_MONTHS <- as.numeric(dataframe$OS_MONTHS)
+result <- dataframe %>%
+  mutate(OS_YEARS = OS_MONTHS / 12)
+result
+
+# Task 4: plot histogram of patient age, add vertical line at mean age
+dataframe$AGE <- as.numeric(dataframe$AGE)
+mean_age <- mean(dataframe$AGE, na.rm = TRUE)
+ggplot(dataframe, aes(x = AGE)) +
+  geom_histogram(binwidth = 5) +
+  geom_vline(xintercept = mean_age) +
+  labs(title = "Histogram of Patient Age", x = "Age", y = "Count")
+
+# Task 5: bar chart of patient counts by cancer stage
+ggplot(dataframe, aes(x = AJCC_PATHOLOGIC_TUMOR_STAGE)) +
+  geom_bar() +
+  labs(title = "Patient Counts by Cancer Stage", x = "Cancer Stage", y = "Count")
+
+# Task 6: scatterplot of age vs survival years colored by subtype
+ggplot(result, aes(x=AGE, y=OS_YEARS, color=HISTOLOGICAL_DIAGNOSIS)) +
+  geom_point() +
+  labs(title = "Age vs Survival Years by Cancer Subtype", x = "Age", y = "Survival Years") +
+  theme_minimal()
 ```
