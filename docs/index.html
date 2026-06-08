@@ -434,13 +434,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong94e49bf">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongaabaed5">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 94e49bf
+aria-hidden="true"></span> <strong>Repository version:</strong> aabaed5
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong94e49bf"
+<div id="strongRepositoryversionstrongaabaed5"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -449,7 +449,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 94e49bf.
+The results in this page were generated with repository version aabaed5.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -508,6 +508,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+aabaed5
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+final edits
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+1b84200
+</td>
+<td>
+Anson Li
+</td>
+<td>
+2026-06-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -889,12 +923,12 @@ result &lt;- dataframe %&gt;%
 # Task 4: plot histogram of patient age, add vertical line at mean age
 dataframe$AGE &lt;- as.numeric(ifelse(dataframe$AGE == &quot;[Not Available]&quot;, NA, dataframe$AGE))
 mean_age &lt;- mean(dataframe$AGE, na.rm = TRUE)
-ggplot(dataframe, aes(x = AGE)) +
+dataframe %&gt;% 
+  filter(!is.na(AGE)) %&gt;% 
+  ggplot(aes(x = AGE)) +
   geom_histogram(binwidth = 5) +
   geom_vline(xintercept = mean_age) +
   labs(title = &quot;Histogram of Patient Age&quot;, x = &quot;Age&quot;, y = &quot;Count&quot;)</code></pre>
-<pre><code>Warning: Removed 1 row containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
 <p><img src="figure/index.Rmd/analyze_data-1.png" alt="" width="672" style="display: block; margin: auto;" /></p>
 <p>
 <button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-analyze_data-1">
