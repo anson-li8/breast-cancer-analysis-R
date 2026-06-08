@@ -7,4 +7,16 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+## About this project
+
+This is a learning project built by a high school student learning R and workflowr.
+
+The dataset is the TCGA breast cancer clinical cohort (1,097 patients) from 
+cBioPortal, containing patient demographics, tumor staging, histological 
+subtype, and survival data.
+
+The analysis was written entirely in R using tidyverse tools (`dplyr` and 
+`ggplot2`), structured with `workflowr` for reproducibility, and version 
+controlled with Git. This was my first real R project working with clinical 
+genomics data. The focus was on learning the workflow correctly, not on 
+producing publishable results.
