@@ -3,9 +3,7 @@
 A learning project by a high school student learning R and workflowr.
 
 This project uses real clinical data from The Cancer Genome Atlas (TCGA) 
-breast cancer cohort (1,097 patients), sourced from cBioPortal. The goal 
-was not to produce novel research findings, but to get hands-on experience 
-with the core tools used in computational biology labs:
+breast cancer cohort (1,101 patients), sourced from cBioPortal. I used this project just to practice setting up R, Git, and workflowr on my laptop before the summer started andto get hands-on experience with the core tools used in computational biology labs:
 
 - **R / tidyverse** — data manipulation with `dplyr`, visualization with `ggplot2`
 - **workflowr** — reproducible research project structure
